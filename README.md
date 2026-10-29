@@ -2,8 +2,8 @@
 
 Projeto prático avaliativo — Tópicos Avançados em Sistemas de Informação II.
 
-- **Aluno:** _<seu nome>_
-- **RA:** _<seu RA>_
+- **Aluno:** Kaique Mattochek
+- **RGM (RA):** 143660240
 
 API REST para gerenciar os pedidos de uma pequena loja, feita com **Node.js + Express (JavaScript)**,
 com armazenamento **em memória** (os dados são perdidos ao reiniciar o servidor).
