@@ -142,13 +142,12 @@ Os prints estão em `evidencias/` (ver `evidencias/LEIA-ME.md`).
 
 ## Uso de IA
 
-Utilizei IA (Claude, da Anthropic) como apoio. _<Ajuste esta seção para refletir exatamente o que você fez.>_
+Utilizei IA (Claude, da Anthropic) como apoio no desenvolvimento deste projeto.
 
-**Tarefas em que a IA ajudou:** geração inicial da estrutura em camadas, rascunho dos testes Jest e da coleção do Postman, e redação do README.
+**Tarefas em que a IA foi usada:** estrutura em camadas, código da API (rotas, controllers, service, repository e tratamento de erros), testes Jest/Supertest, coleção do Postman e rascunho deste README.
 
-**Sugestões e decisões (revisadas e testadas por mim):**
+**Sugestões aceitas:**
 
-- **Aceita:** middleware central de erros com classes `ValidationError`/`NotFoundError`, para que o controller não decida códigos HTTP em cada `catch` e erros inesperados virem `500` sem vazar detalhes.
-- **Aceita com modificação:** máquina de transições de status. O fluxo `recebido → em_preparacao → enviado → entregue`, com `cancelado` permitido só até `em_preparacao`, foi definido como regra de negócio documentada acima; conferi cada transição nos testes.
-- **Decisão adotada:** `valor` só aceita tipo número (rejeita `"350"`), porque o enunciado exige valor "numérico" e converter texto esconderia dados inválidos.
-- **Rejeitada/alterada (exemplo — substitua pelo seu caso real):** _<descreva uma sugestão que você recusou ou mudou e por quê>_.
+- Middleware central de erros com `ValidationError` e `NotFoundError`, para que o controller não decida códigos HTTP em cada `catch` e erros inesperados virem `500` sem vazar detalhes.
+- Máquina de transições de status (`recebido → em_preparacao → enviado → entregue`, com `cancelado` permitido só até `em_preparacao`), documentada acima e coberta pelos testes.
+- `valor` aceita apenas tipo número (rejeita `"350"`), pois o enunciado exige valor "numérico" e converter texto esconderia dados inválidos.
