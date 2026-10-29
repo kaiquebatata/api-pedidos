@@ -1,0 +1,6 @@
+POST /pedidos
+Corpo:
+{"cliente":"Carlos Silva","tipo":"entrega","valor":350,"prioridade":"normal"}
+---
+HTTP 201
+{"id":1,"cliente":"Carlos Silva","tipo":"entrega","valor":350,"prioridade":"normal","status":"recebido"}

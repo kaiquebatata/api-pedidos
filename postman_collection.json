@@ -1,0 +1,68 @@
+{
+  "info": {
+    "name": "API de Pedidos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }],
+  "item": [
+    {
+      "name": "01 - POST /pedidos (válido -> 201)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"cliente\": \"Carlos Silva\",\n  \"tipo\": \"entrega\",\n  \"valor\": 350,\n  \"prioridade\": \"normal\"\n}" },
+        "url": { "raw": "{{baseUrl}}/pedidos", "host": ["{{baseUrl}}"], "path": ["pedidos"] }
+      }
+    },
+    {
+      "name": "02 - POST /pedidos (inválido -> 400)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"cliente\": \"   \",\n  \"tipo\": \"entrega\",\n  \"valor\": -1,\n  \"prioridade\": \"normal\"\n}" },
+        "url": { "raw": "{{baseUrl}}/pedidos", "host": ["{{baseUrl}}"], "path": ["pedidos"] }
+      }
+    },
+    {
+      "name": "03 - GET /pedidos (200)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/pedidos", "host": ["{{baseUrl}}"], "path": ["pedidos"] }
+      }
+    },
+    {
+      "name": "04 - GET /pedidos/9999 (inexistente -> 404)",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "{{baseUrl}}/pedidos/9999", "host": ["{{baseUrl}}"], "path": ["pedidos", "9999"] }
+      }
+    },
+    {
+      "name": "05 - PATCH /pedidos/1/status (válido -> 200)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"em_preparacao\"\n}" },
+        "url": { "raw": "{{baseUrl}}/pedidos/1/status", "host": ["{{baseUrl}}"], "path": ["pedidos", "1", "status"] }
+      }
+    },
+    {
+      "name": "Extra - PATCH transição inválida (-> 400)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"entregue\"\n}" },
+        "url": { "raw": "{{baseUrl}}/pedidos/1/status", "host": ["{{baseUrl}}"], "path": ["pedidos", "1", "status"] }
+      }
+    },
+    {
+      "name": "Extra - PATCH id inexistente (-> 404)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"status\": \"cancelado\"\n}" },
+        "url": { "raw": "{{baseUrl}}/pedidos/9999/status", "host": ["{{baseUrl}}"], "path": ["pedidos", "9999", "status"] }
+      }
+    }
+  ]
+}

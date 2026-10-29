@@ -1,0 +1,4 @@
+GET /pedidos/9999
+---
+HTTP 404
+{"erro":"Pedido com id \"9999\" não encontrado."}

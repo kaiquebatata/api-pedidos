@@ -1,0 +1,6 @@
+POST /pedidos
+Corpo:
+{"cliente":"   ","tipo":"entrega","valor":-1,"prioridade":"normal"}
+---
+HTTP 400
+{"erro":"O campo \"cliente\" é obrigatório e deve ser um texto não vazio."}

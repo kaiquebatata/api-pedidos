@@ -1,0 +1,4 @@
+GET /pedidos
+---
+HTTP 200
+[{"id":1,"cliente":"Carlos Silva","tipo":"entrega","valor":350,"prioridade":"normal","status":"recebido"}]

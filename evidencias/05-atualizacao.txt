@@ -1,0 +1,6 @@
+PATCH /pedidos/1/status
+Corpo:
+{"status":"em_preparacao"}
+---
+HTTP 200
+{"id":1,"cliente":"Carlos Silva","tipo":"entrega","valor":350,"prioridade":"normal","status":"em_preparacao"}
